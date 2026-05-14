@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Mabira Conrad William</title>
+<meta name="description" content="About Mabira Conrad William (@cxsnrd) — security analyst & offensive security engineer at CERT.UG/CC, MSc researcher at UEL." />
+
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="About — Mabira Conrad William" />
+<meta property="og:description" content="Security analyst at CERT.UG/CC. Offensive security engineer. MSc researcher at UEL." />
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="about">
+
+<!-- ─── SECTION: NAV ─── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">@cxsnrd<span class="cursor"></span></a>
+    <ul class="nav-links">
+      <li><a href="research.html" data-nav-page="research">Research</a></li>
+      <li><a href="talks.html" data-nav-page="talks">Talks</a></li>
+      <li><a href="tools.html" data-nav-page="tools">Tools</a></li>
+      <li><a href="about.html" data-nav-page="about">About</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+          <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+        </button>
+      </li>
+      <li><a href="contact.html" class="btn-nav" data-nav-page="contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true">
+  <button class="close" id="navClose" aria-label="Close menu">×</button>
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="talks.html">Talks</a>
+  <a href="tools.html">Tools</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode" style="margin-top: 1rem;">
+    <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+  </button>
+</div>
+
+<!-- ─── SECTION: PAGE HEADER ─── -->
+<header class="page-header">
+  <div class="page-header-3d" aria-hidden="true"></div>
+  <div class="container">
+    <div class="page-eyebrow">// the operator</div>
+    <h1 class="page-title">Mabira<br />Conrad William<span class="accent">.</span></h1>
+    <p class="page-desc">
+      Security analyst at the Uganda National Computer Emergency Response Team &amp; Coordination Centre. Offensive security engineer. MSc postgraduate researcher at the University of East London.
+    </p>
+  </div>
+</header>
+
+<!-- ─── SECTION: BIO ─── -->
+<section>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Security Analyst at <strong>NITA-U</strong> (the National Information Technology Authority of Uganda), where I spend my days trying to keep critical government infrastructure ahead of APTs, ransomware crews, and the usual opportunistic noise. Most of the work doesn't show up on a compliance checklist — it's adversary simulations, forensic deep-dives, and the kind of thing that only really matters when something has already gone wrong.
+        </p>
+        <p>
+          On the offensive side I build and run <span class="hl">Red Team infrastructure</span> end-to-end — the C2 stack, the phishing layer, the post-exploitation playbook — for engagements that span web, cloud, and hybrid environments. The bugs that actually move an engagement forward usually aren't the ones an automated scanner picks up; they're logic flaws, trust assumptions, and the kind of architectural decisions you only catch by sitting with a system long enough.
+        </p>
+        <p>
+          When something gets through, I switch hats and do the incident response. That means showing up after the breach, working backwards through whatever the attacker left behind — process trees, registry artefacts, packet captures — and reconstructing how they moved. I've also run <span class="hl">full ransomware recoveries</span>: triaging what's encrypted, salvaging what isn't, and getting systems back online without re-introducing the foothold.
+        </p>
+        <p>
+          I speak when I have something worth saying. Past sessions with <strong>ISC2 Uganda</strong>, <strong>UIBFS</strong>, and NITA-coordinated programmes have covered RaaS economics, threat-actor communications, phishing tradecraft, and a few related rabbit holes. Longer writeups live at <a href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener">cxnrvd.hashnode.dev</a> — recent posts dissect the <span class="hl">Qilin</span> affiliate engagement I worked, a Mallox sample that pivoted in through MS-SQL, and the ALFA Shell kit.
+        </p>
+        <p>
+          On the side, I'm an <strong>MSc researcher at the University of East London</strong> — looking mostly at Active Directory attack paths and adversary infrastructure detection.
+        </p>
+        <p style="color: var(--text); margin-top: 2rem; font-size: 14px;">
+          If you want to chat about red-team tooling, incident response in resource-constrained environments, or some TTP cluster that's been on your mind lately — <span class="hl">reach out</span>.
+        </p>
+
+        <div class="about-links">
+          <a class="btn btn-ghost" href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener">[ Hashnode ↗ ]</a>
+          <a class="btn btn-ghost" href="https://github.com/Cxnrvd" target="_blank" rel="noopener">[ GitHub ↗ ]</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/mabira-conrad-william-aa75781b3/" target="_blank" rel="noopener">[ LinkedIn ↗ ]</a>
+          <a class="btn btn-ghost" href="https://www.cert.ug" target="_blank" rel="noopener">[ CERT.UG/CC ↗ ]</a>
+        </div>
+      </div>
+
+      <pre class="nmap-card" aria-label="Profile card formatted as Nmap scan output"><span class="dim">Starting Nmap scan on:</span> <span class="val">cxsnrd.sec</span>
+<span class="sep">─────────────────────────────────────</span>
+<span class="lbl">Host  </span> : <span class="val">Mabira Conrad William</span>
+<span class="lbl">Handle</span> : <span class="val">@cxsnrd</span>
+<span class="lbl">Role  </span> : <span class="val">Security Analyst // CERT.UG/CC</span>
+<span class="lbl">Loc   </span> : <span class="val">Kampala, Uganda</span>
+<span class="lbl">Status</span> : <span class="val">ACTIVE</span>
+<span class="sep">─────────────────────────────────────</span>
+<span class="header">PORT     STATE   SERVICE</span>
+<span class="val">443/tcp </span> <span class="dim">open   </span> <span class="lbl">threat-intel</span>
+<span class="val">8080/tcp</span> <span class="dim">open   </span> <span class="lbl">red-team-ops</span>
+<span class="val">22/tcp  </span> <span class="dim">open   </span> <span class="lbl">dfir-response</span>
+<span class="sep">─────────────────────────────────────</span>
+<span class="dim">Nmap done. No vulnerabilities found... yet.</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: TIMELINE ─── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label">// trajectory</div>
+    <h2 class="glitch">The path<span class="accent">.</span></h2>
+
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-when">PRESENT</div>
+        <div class="timeline-what">
+          <h3>Security Analyst &amp; Offensive Security Engineer</h3>
+          <div class="where">NITA-U · Kampala</div>
+          <p>Splitting the week between offensive and defensive work across the threat landscape. On the offensive side: building the C2 stack, running phishing simulations, and the deep-dive pentests that catch the bugs automated scanners miss. On the defensive side: live incident response, forensic reconstruction, and full ransomware recoveries when prevention has already failed.</p>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-when">PRESENT</div>
+        <div class="timeline-what">
+          <h3>MSc Postgraduate Researcher</h3>
+          <div class="where">University of East London · United Kingdom</div>
+          <p>Postgraduate research alongside the operational role at CERT.UG/CC. Research interests: ransomware tradecraft and adversary infrastructure detection.</p>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-when">ONGOING</div>
+        <div class="timeline-what">
+          <h3>Independent Writing — @cxsnrd</h3>
+          <div class="where">cxnrvd.hashnode.dev · Field notes &amp; technical writeups</div>
+          <p>Long-form pieces on ADCS exploitation, ransomware dissection, C2 &amp; Fast Flux infrastructure, and Evilginx-style 2FA bypass.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: EXPERTISE ─── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label">// stack &amp; surfaces</div>
+    <h2 class="glitch">What lives on<br />the desk<span class="accent">.</span></h2>
+    <p class="section-intro">
+      The toolkit moves. Below is the current rotation across operational, offensive, and analytical work — not exhaustive, but representative of the daily set.
+    </p>
+
+    <div class="expertise-grid">
+      <div class="expertise">
+        <h4>DFIR &amp; Malware</h4>
+        <ul>
+          <li>Volatility 3</li>
+          <li>Velociraptor</li>
+          <li>TheHive · Cortex</li>
+          <li>YARA / Sigma</li>
+          <li>IDA Pro · Ghidra</li>
+          <li>x64dbg</li>
+        </ul>
+      </div>
+
+      <div class="expertise">
+        <h4>Offensive</h4>
+        <ul>
+          <li>BloodHound CE</li>
+          <li>Impacket suite</li>
+          <li>Certipy · Certify</li>
+          <li>Burp Suite Pro</li>
+          <li>Cobalt Strike</li>
+          <li>Evilginx2</li>
+        </ul>
+      </div>
+
+      <div class="expertise">
+        <h4>Threat Intel</h4>
+        <ul>
+          <li>MISP</li>
+          <li>MITRE ATT&amp;CK</li>
+          <li>JARM fingerprinting</li>
+          <li>Passive DNS</li>
+          <li>Shodan · Censys</li>
+          <li>VirusTotal Intel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: CERTIFICATIONS ─── -->
+<section id="certifications" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label">// certifications &amp; training</div>
+    <h2 class="glitch">Industry certifications<br />&amp; training<span class="accent">.</span></h2>
+    <p class="section-intro">
+      The full set — industry certifications, structured training, and notable facilitation engagements. Ordered most recent first.
+    </p>
+
+    <div class="certs-grid" id="certsGrid"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION: CTA STRIP ─── -->
+<section class="cta-strip">
+  <div class="cta-3d" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label" style="justify-content: center; margin-left: auto; margin-right: auto; width: fit-content;">// reach out</div>
+    <h2 class="glitch">Collaborate. Train.<br /><span class="accent">Coordinate.</span></h2>
+    <p>
+      Open to research collaboration, advisory engagements, government &amp; enterprise training, and conference speaking.
+    </p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn btn-primary">[ Get in touch ]</a>
+      <a href="research.html" class="btn btn-ghost">[ Browse research → ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">@cxsnrd<span class="cursor"></span></a>
+      <p>Security analyst, offensive security engineer, and researcher. Field notes from CERT.UG/CC and beyond.</p>
+      <div class="footer-tagline">"Breaking things so others don't have to."</div>
+    </div>
+    <div class="footer-col">
+      <h5>Site</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener">Hashnode ↗</a></li>
+        <li><a href="https://github.com/Cxnrvd" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/mabira-conrad-william-aa75781b3/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://x.com/cxsnrd" target="_blank" rel="noopener">Twitter / X ↗</a></li>
+        <li><a href="https://www.cert.ug" target="_blank" rel="noopener">CERT.UG/CC ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Topics</h5>
+      <ul>
+        <li><a href="research.html">Active Directory</a></li>
+        <li><a href="research.html">DFIR &amp; Malware</a></li>
+        <li><a href="research.html">Threat Intel</a></li>
+        <li><a href="research.html">Phishing &amp; AiTM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="copy">© 2025 Mabira Conrad William · Built in Kampala</div>
+    <div class="right"><span class="status-dot"></span>OPERATIONAL</div>
+  </div>
+  <div class="footer-baseline"></div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
+<script type="module" src="assets/three-scenes.js"></script>
+<script>
+  /* ─── CERTIFICATIONS RENDER ─── */
+  const certsEl = document.getElementById('certsGrid');
+  if (certsEl && DATA.certifications) {
+    certsEl.innerHTML = DATA.certifications.map(c => `
+      <div class="cert">
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-issuer ${c.issuer ? '' : 'unspecified'}">${c.issuer || 'Workshop / Forum'}</div>
+      </div>
+    `).join('');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+# ─── macOS ───
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ─── Editors ───
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# ─── Node (in case tooling is added later) ───
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.npm/
+.yarn/
+
+# ─── Environment / secrets ───
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ─── Build artefacts (not used today, but future-proof) ───
+dist/
+build/
+.cache/
+
+# ─── Logs & temp ───
+*.log
+*.tmp
+*.bak
+*.orig
+
+# ─── Windows ───
+Thumbs.db
+desktop.ini

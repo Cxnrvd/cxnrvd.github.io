@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Talks & Training — Mabira Conrad William</title>
+<meta name="description" content="Conference talks, workshops, and training engagements delivered by Mabira Conrad William — security analyst at CERT.UG/CC." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Talks & Training — Mabira Conrad William" />
+<meta property="og:description" content="Past and upcoming talks, workshops, and training sessions covering Active Directory attack paths, DFIR, ransomware response, and threat intelligence." />
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="talks">
+
+<!-- ─── SECTION: NAV ─── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">@cxsnrd<span class="cursor"></span></a>
+    <ul class="nav-links">
+      <li><a href="research.html" data-nav-page="research">Research</a></li>
+      <li><a href="talks.html" data-nav-page="talks">Talks</a></li>
+      <li><a href="tools.html" data-nav-page="tools">Tools</a></li>
+      <li><a href="about.html" data-nav-page="about">About</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+          <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+        </button>
+      </li>
+      <li><a href="contact.html" class="btn-nav" data-nav-page="contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true">
+  <button class="close" id="navClose" aria-label="Close menu">×</button>
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="talks.html">Talks</a>
+  <a href="tools.html">Tools</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode" style="margin-top: 1rem;">
+    <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+  </button>
+</div>
+
+<!-- ─── SECTION: PAGE HEADER ─── -->
+<header class="page-header">
+  <div class="page-header-3d" aria-hidden="true"></div>
+  <div class="container">
+    <div class="page-eyebrow">// talks &amp; training</div>
+    <h1 class="page-title">On stage &amp;<br />in the room<span class="accent">.</span></h1>
+    <p class="page-desc">
+      Conference talks, hands-on workshops, and structured training engagements — delivered to government, academia, and security practitioners. Topics centre on Active Directory, DFIR, ransomware response, and adversary infrastructure tracking.
+    </p>
+  </div>
+</header>
+
+<!-- ─── SECTION: TALKS LIST ─── -->
+<section>
+  <div class="container">
+    <div class="section-label">// engagements</div>
+    <h2 class="glitch">Recent &amp; upcoming<span class="accent">.</span></h2>
+    <p class="section-intro">
+      Past delivery, plus a few confirmed and pencilled-in dates ahead.
+    </p>
+
+    <div class="talks-list" id="talksList"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION: SPEAKING TOPICS ─── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label">// bookable on</div>
+    <h2 class="glitch">Topics I'm currently<br />speaking on<span class="accent">.</span></h2>
+    <p class="section-intro">
+      Workshops can be tailored to time, depth, and audience — from a 45-minute conference slot to a multi-day hands-on training. Get in touch for tailoring.
+    </p>
+
+    <div class="speaking-topics" id="speakingTopics"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION: CTA STRIP ─── -->
+<section class="cta-strip">
+  <div class="cta-3d" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label" style="justify-content: center; margin-left: auto; margin-right: auto; width: fit-content;">// invite to speak</div>
+    <h2 class="glitch">Hosting a conference<br />or building a curriculum<span class="accent">?</span></h2>
+    <p>
+      Open to conference talks, workshop delivery, and structured training engagements for government, enterprise, and academic audiences.
+    </p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn btn-primary">[ Get in touch ]</a>
+      <a href="research.html" class="btn btn-ghost">[ Browse research → ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">@cxsnrd<span class="cursor"></span></a>
+      <p>Security analyst, offensive security engineer, and researcher. Field notes from CERT.UG/CC and beyond.</p>
+      <div class="footer-tagline">"Breaking things so others don't have to."</div>
+    </div>
+    <div class="footer-col">
+      <h5>Site</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener">Hashnode ↗</a></li>
+        <li><a href="https://github.com/Cxnrvd" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/mabira-conrad-william-aa75781b3/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://x.com/cxsnrd" target="_blank" rel="noopener">Twitter / X ↗</a></li>
+        <li><a href="https://www.cert.ug" target="_blank" rel="noopener">CERT.UG/CC ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Topics</h5>
+      <ul>
+        <li><a href="research.html">Active Directory</a></li>
+        <li><a href="research.html">DFIR &amp; Malware</a></li>
+        <li><a href="research.html">Threat Intel</a></li>
+        <li><a href="research.html">Phishing &amp; AiTM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="copy">© 2025 Mabira Conrad William · Built in Kampala</div>
+    <div class="right"><span class="status-dot"></span>OPERATIONAL</div>
+  </div>
+  <div class="footer-baseline"></div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
+<script type="module" src="assets/three-scenes.js"></script>
+<script>
+  function formatTalkDate(iso) {
+    try {
+      const [y, m] = iso.split('-');
+      const d = new Date(parseInt(y, 10), parseInt(m, 10) - 1, 1);
+      return d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }).toUpperCase();
+    } catch (e) { return iso; }
+  }
+
+  /* ─── TALKS LIST ─── */
+  const sortedTalks = [...DATA.talks].sort((a, b) => b.date.localeCompare(a.date));
+  document.getElementById('talksList').innerHTML = sortedTalks.map(t => {
+    const resources = [];
+    if (t.slides)   resources.push(`<a href="${t.slides}"   target="_blank" rel="noopener">Slides ↗</a>`);
+    if (t.video)    resources.push(`<a href="${t.video}"    target="_blank" rel="noopener">Video ↗</a>`);
+    if (t.linkedin) resources.push(`<a href="${t.linkedin}" target="_blank" rel="noopener">LinkedIn ↗</a>`);
+
+    const statusHtml = t.status === 'upcoming'
+      ? `<span class="status-marker upcoming">Upcoming</span>`
+      : '';
+
+    // Primary URL for whole-row click: linkedin > slides > video.
+    const primaryUrl = t.linkedin || t.slides || t.video || '';
+    const rowAttr = primaryUrl ? ` data-href="${primaryUrl}"` : '';
+
+    return `
+      <article class="talk-row"${rowAttr}>
+        <div class="talk-date">${formatTalkDate(t.date)}</div>
+        <div class="talk-body">
+          <h3>${t.title}</h3>
+          <div class="talk-event">${t.event}</div>
+          <div class="talk-where">${t.location}${t.audience ? ' · ' + t.audience : ''}</div>
+          <p class="talk-abstract">${t.abstract}</p>
+          ${resources.length ? `<div class="talk-resources">${resources.join('')}</div>` : ''}
+        </div>
+        <div class="talk-type">
+          <span class="type-badge type-${t.type}">${t.type}</span>
+          ${statusHtml}
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  observeCards('.talk-row');
+
+  /* ─── SPEAKING TOPICS ─── */
+  document.getElementById('speakingTopics').innerHTML = DATA.speakingTopics.map((s, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    return `
+      <div class="topic">
+        <span class="topic-num">${num}</span>
+        <h3>${s.title}</h3>
+        <p>${s.blurb}</p>
+      </div>
+    `;
+  }).join('');
+</script>
+
+</body>
+</html>

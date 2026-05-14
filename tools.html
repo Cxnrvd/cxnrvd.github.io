@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tools — Mabira Conrad William</title>
+<meta name="description" content="Open-source tools, scripts, and research artefacts from Mabira Conrad William — offensive, DFIR, and threat-intel utilities." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Tools — Mabira Conrad William" />
+<meta property="og:description" content="Open-source security tools — offensive, DFIR, threat-intel, and research automation." />
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="tools">
+
+<!-- ─── SECTION: NAV ─── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">@cxsnrd<span class="cursor"></span></a>
+    <ul class="nav-links">
+      <li><a href="research.html" data-nav-page="research">Research</a></li>
+      <li><a href="talks.html" data-nav-page="talks">Talks</a></li>
+      <li><a href="tools.html" data-nav-page="tools">Tools</a></li>
+      <li><a href="about.html" data-nav-page="about">About</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+          <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+        </button>
+      </li>
+      <li><a href="contact.html" class="btn-nav" data-nav-page="contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true">
+  <button class="close" id="navClose" aria-label="Close menu">×</button>
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="talks.html">Talks</a>
+  <a href="tools.html">Tools</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode" style="margin-top: 1rem;">
+    <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+  </button>
+</div>
+
+<!-- ─── SECTION: PAGE HEADER ─── -->
+<header class="page-header">
+  <div class="page-header-3d" aria-hidden="true"></div>
+  <div class="container">
+    <div class="page-eyebrow">// tools &amp; open source</div>
+    <h1 class="page-title">Tools<br />on the bench<span class="accent">.</span></h1>
+    <p class="page-desc">
+      Scripts, helpers, and research artefacts written in the course of operational, offensive, and threat-intel work. Curated here rather than buried in a GitHub profile. Most are <span style="color:var(--amber)">work-in-progress</span> and will go public as they stabilise.
+    </p>
+  </div>
+</header>
+
+<!-- ─── SECTION: TOOLS GRID ─── -->
+<section>
+  <div class="container">
+    <div id="toolsGroups"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION: CTA STRIP ─── -->
+<section class="cta-strip">
+  <div class="cta-3d" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label" style="justify-content: center; margin-left: auto; margin-right: auto; width: fit-content;">// collaborate on code</div>
+    <h2 class="glitch">Building something<br />adjacent<span class="accent">?</span></h2>
+    <p>
+      Open to collaboration on offensive tooling, DFIR helpers, and threat-intel automation. Pull requests, ideas, and write-up partnerships welcome.
+    </p>
+    <div class="cta-row">
+      <a href="https://github.com/Cxnrvd" target="_blank" rel="noopener" class="btn btn-primary">[ View GitHub ↗ ]</a>
+      <a href="contact.html" class="btn btn-ghost">[ Get in touch ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">@cxsnrd<span class="cursor"></span></a>
+      <p>Security analyst, offensive security engineer, and researcher. Field notes from CERT.UG/CC and beyond.</p>
+      <div class="footer-tagline">"Breaking things so others don't have to."</div>
+    </div>
+    <div class="footer-col">
+      <h5>Site</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener">Hashnode ↗</a></li>
+        <li><a href="https://github.com/Cxnrvd" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/mabira-conrad-william-aa75781b3/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://x.com/cxsnrd" target="_blank" rel="noopener">Twitter / X ↗</a></li>
+        <li><a href="https://www.cert.ug" target="_blank" rel="noopener">CERT.UG/CC ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Topics</h5>
+      <ul>
+        <li><a href="research.html">Active Directory</a></li>
+        <li><a href="research.html">DFIR &amp; Malware</a></li>
+        <li><a href="research.html">Threat Intel</a></li>
+        <li><a href="research.html">Phishing &amp; AiTM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="copy">© 2025 Mabira Conrad William · Built in Kampala</div>
+    <div class="right"><span class="status-dot"></span>OPERATIONAL</div>
+  </div>
+  <div class="footer-baseline"></div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
+<script type="module" src="assets/three-scenes.js"></script>
+<script>
+  const CATEGORY_LABELS = {
+    offensive:     'Offensive',
+    dfir:          'DFIR',
+    'threat-intel':'Threat Intel',
+    automation:    'Automation & Research'
+  };
+
+  /* Group tools by category, preserving CATEGORY_LABELS order. */
+  const grouped = {};
+  Object.keys(CATEGORY_LABELS).forEach(k => grouped[k] = []);
+  DATA.tools.forEach(t => {
+    if (!grouped[t.category]) grouped[t.category] = [];
+    grouped[t.category].push(t);
+  });
+
+  const groupsEl = document.getElementById('toolsGroups');
+  groupsEl.innerHTML = Object.keys(grouped).filter(k => grouped[k].length).map(cat => {
+    const items = grouped[cat];
+    return `
+      <div class="tools-group">
+        <div class="tools-group-header">
+          <h3>${CATEGORY_LABELS[cat] || cat}</h3>
+          <span class="count">${items.length} ${items.length === 1 ? 'item' : 'items'}</span>
+        </div>
+        <div class="tools-grid">
+          ${items.map(renderToolCard).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  observeCards('.tool-card');
+
+  function renderToolCard(t) {
+    const external = t.url && t.url.startsWith('http');
+    const linkAttrs = external ? `target="_blank" rel="noopener"` : '';
+    const statusLabel = {
+      active:   'Active',
+      wip:      'WIP',
+      archived: 'Archived'
+    }[t.status] || t.status;
+
+    const tag = t.url ? 'a' : 'div';
+    const hrefAttr = t.url ? `href="${t.url}" ${linkAttrs}` : '';
+    return `
+      <${tag} ${hrefAttr} class="tool-card">
+        <div class="tool-top">
+          <span class="lang-badge">${t.lang}</span>
+          <span class="tool-status tool-status-${t.status}">${statusLabel}</span>
+        </div>
+        <div class="tool-name">${t.name}</div>
+        <p class="tool-description">${t.description}</p>
+        <div class="tool-stack">${t.stack.map(s => `<span>${s}</span>`).join('')}</div>
+        <div class="tool-bottom">
+          <span class="tool-cat">${CATEGORY_LABELS[t.category] || t.category}</span>
+          ${t.url ? `<span class="tool-link">View ↗</span>` : ''}
+        </div>
+      </${tag}>
+    `;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mabira Conrad William — Security Analyst & Offensive Security Engineer</title>
+<meta name="description" content="Mabira Conrad William (@cxsnrd) — Security Analyst & Offensive Security Engineer at CERT.UG/CC, MSc researcher at UEL. Field notes on ADCS, ransomware, C2 infrastructure, and 2FA bypass." />
+<meta name="author" content="Mabira Conrad William" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mabira Conrad William — Security Analyst & Offensive Security Engineer" />
+<meta property="og:description" content="Field notes from a security analyst at CERT.UG/CC. Research on Active Directory attack paths, ransomware analysis, C2 detection, and adversary-in-the-middle phishing." />
+<meta property="og:url" content="https://cxnrvd.hashnode.dev" />
+<meta property="og:site_name" content="@cxsnrd" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mabira Conrad William — Security Analyst & Offensive Security Engineer" />
+<meta name="twitter:description" content="Field notes from a security analyst at CERT.UG/CC. ADCS, ransomware, C2, 2FA bypass." />
+<meta name="twitter:creator" content="@cxsnrd" />
+
+<script>
+  /* Set theme before CSS paints to avoid a flash of wrong theme. */
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="home">
+
+<!-- ─── SECTION: NAV ─── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">@cxsnrd<span class="cursor"></span></a>
+    <ul class="nav-links">
+      <li><a href="research.html" data-nav-page="research">Research</a></li>
+      <li><a href="talks.html" data-nav-page="talks">Talks</a></li>
+      <li><a href="tools.html" data-nav-page="tools">Tools</a></li>
+      <li><a href="about.html" data-nav-page="about">About</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+          <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+        </button>
+      </li>
+      <li><a href="contact.html" class="btn-nav" data-nav-page="contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true">
+  <button class="close" id="navClose" aria-label="Close menu">×</button>
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="talks.html">Talks</a>
+  <a href="tools.html">Tools</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode" style="margin-top: 1rem;">
+    <svg class="icon-sun" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="1.5" x2="10" y2="3.5"/><line x1="10" y1="16.5" x2="10" y2="18.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="3.95" y1="3.95" x2="5.36" y2="5.36"/><line x1="14.64" y1="14.64" x2="16.05" y2="16.05"/><line x1="3.95" y1="16.05" x2="5.36" y2="14.64"/><line x1="14.64" y1="5.36" x2="16.05" y2="3.95"/></svg>
+    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11.5A7.5 7.5 0 1 1 8.5 3a6 6 0 0 0 8.5 8.5z"/></svg>
+  </button>
+</div>
+
+<!-- ─── SECTION: HERO ─── -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-left">
+      <div class="status-pill">
+        <span class="dot"></span>
+        Available for research collaboration
+      </div>
+      <div class="eyebrow">&gt; @cxsnrd · Security Analyst · Offensive Security · CERT.UG/CC</div>
+      <h1>Mabira<br />Conrad William<span class="period">.</span></h1>
+      <div class="hero-subhead">
+        Security analyst at the <span class="hl">Uganda National CERT/CC</span> under NITA-U, and MSc researcher at the <span class="hl">University of East London</span>.
+        <br /><br />
+        Based in <span class="hl">Kampala, Uganda</span>.
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="research.html">[ Read Research ]</a>
+        <a class="btn btn-ghost" href="https://github.com/Cxnrvd" target="_blank" rel="noopener">[ View GitHub ↗ ]</a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Focus</span>
+          <span class="hero-meta-value">AD · DFIR · Threat Intel</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Writing</span>
+          <span class="hero-meta-value">cxnrvd.hashnode.dev</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Location</span>
+          <span class="hero-meta-value">Kampala, UG</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hero-side">
+      <a class="hero-card-post" id="heroLatestPost" href="#"></a>
+      <div class="hero-card-now" id="heroNow"></div>
+    </aside>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- ─── SECTION: AFFILIATIONS ─── -->
+<section class="affiliations">
+  <div class="container">
+    <div class="affiliations-label">Active across · On the network</div>
+    <div class="affiliations-row" id="affiliations"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION: CAPABILITIES ─── -->
+<section>
+  <div class="container">
+    <div class="section-label">// capabilities</div>
+    <h2 class="glitch">Three disciplines.<br /><span class="accent">One operator.</span></h2>
+    <p class="section-intro">
+      The work spans the full defensive-to-offensive arc — from reverse-engineering active malware samples to mapping attack paths inside hardened Active Directory forests. Below is the daily surface area.
+    </p>
+
+    <div class="capabilities" id="capabilities"></div>
+  </div>
+</section>
+
+<!-- ─── SECTION: STATS ─── -->
+<section class="stats" style="padding: 3.5rem 0;">
+  <div class="stats-grid" id="statsGrid"></div>
+</section>
+
+<!-- ─── SECTION: FEATURED RESEARCH ─── -->
+<section>
+  <div class="container">
+    <div class="section-label">// latest research</div>
+    <h2 class="glitch">Field notes &amp; analysis<span class="accent">.</span></h2>
+    <p class="section-intro">
+      Walkthroughs, malware dissections, and infrastructure detection writeups. The full archive — including lab walkthroughs and advisories — lives on the research page.
+    </p>
+
+    <div class="featured-grid" id="featuredGrid"></div>
+
+    <div style="margin-top: 3rem; display: flex; justify-content: flex-start;">
+      <a href="research.html" class="btn btn-ghost">[ Browse all research → ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: ABOUT TEASER ─── -->
+<section>
+  <div class="container">
+    <div class="section-label">// the operator</div>
+    <div class="about-teaser">
+      <div class="about-teaser-text">
+        <h2 class="glitch">Built in the<br /><span class="accent">SOC.</span></h2>
+        <p>
+          <span class="hl">Mabira Conrad William</span> is a security analyst and offensive security engineer at <span class="hl">CERT.UG/CC</span> — Uganda's national CERT, operated under NITA-U. Work centres on vulnerability assessment, digital forensics &amp; incident response, malware analysis, and threat intelligence.
+        </p>
+        <p>
+          Concurrently an MSc postgraduate researcher at the <span class="hl">University of East London</span>. Independent writing lives at <a href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener" style="color:var(--amber)">cxnrvd.hashnode.dev</a>.
+        </p>
+        <div style="margin-top: 2rem;">
+          <a href="about.html" class="btn-text">Read full bio <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="about-teaser-side">
+        <div class="row"><span class="key">Name</span><span class="val">Mabira C. William</span></div>
+        <div class="row"><span class="key">Role</span><span class="val">Security Analyst</span></div>
+        <div class="row"><span class="key">Org</span><span class="val">CERT.UG/CC</span></div>
+        <div class="row"><span class="key">Parent</span><span class="val">NITA-U</span></div>
+        <div class="row"><span class="key">Location</span><span class="val">Kampala, UG</span></div>
+        <div class="row"><span class="key">Research</span><span class="val">UEL · MSc</span></div>
+        <div class="row"><span class="key">Status</span><span class="val">ACTIVE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: CERTIFICATIONS PREVIEW ─── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label">// receipts</div>
+    <h2 class="glitch">Receipts on<br />the wall<span class="accent">.</span></h2>
+    <p class="section-intro">
+      Industry certifications and structured training — a quick highlight reel. Full list lives on the about page.
+    </p>
+
+    <div class="certs-preview" id="certsPreview"></div>
+
+    <div class="certs-preview-foot">
+      <a href="about.html#certifications" class="btn btn-ghost">[ View all → ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: CTA STRIP ─── -->
+<section class="cta-strip">
+  <div class="container">
+    <div class="section-label" style="justify-content: center; margin-left: auto; margin-right: auto; width: fit-content;">// open for collaboration</div>
+    <h2 class="glitch">Have a problem worth<br /><span class="accent">breaking?</span></h2>
+    <p>
+      Open to research collaboration, advisory engagements, government &amp; enterprise training, and conference speaking. Most things start with a short email.
+    </p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn btn-primary">[ Get in touch ]</a>
+      <a href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener" class="btn btn-ghost">[ Read the blog ↗ ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION: FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">@cxsnrd<span class="cursor"></span></a>
+      <p>Security analyst, offensive security engineer, and researcher. Field notes from CERT.UG/CC and beyond.</p>
+      <div class="footer-tagline">"Breaking things so others don't have to."</div>
+    </div>
+    <div class="footer-col">
+      <h5>Site</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Elsewhere</h5>
+      <ul>
+        <li><a href="https://cxnrvd.hashnode.dev" target="_blank" rel="noopener">Hashnode ↗</a></li>
+        <li><a href="https://github.com/Cxnrvd" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/mabira-conrad-william-aa75781b3/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://x.com/cxsnrd" target="_blank" rel="noopener">Twitter / X ↗</a></li>
+        <li><a href="https://www.cert.ug" target="_blank" rel="noopener">CERT.UG/CC ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Topics</h5>
+      <ul>
+        <li><a href="research.html">Active Directory</a></li>
+        <li><a href="research.html">DFIR &amp; Malware</a></li>
+        <li><a href="research.html">Threat Intel</a></li>
+        <li><a href="research.html">Phishing &amp; AiTM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="copy">© 2025 Mabira Conrad William · Built in Kampala</div>
+    <div class="right"><span class="status-dot"></span>OPERATIONAL</div>
+  </div>
+  <div class="footer-baseline"></div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
+<script type="module" src="assets/three-scenes.js"></script>
+<script>
+  /* ─── AFFILIATIONS ─── */
+  document.getElementById('affiliations').innerHTML = DATA.affiliations.map(a =>
+    `<span class="affiliation"><span class="dot"></span>${a}</span>`
+  ).join('');
+
+  /* ─── STATS ─── */
+  document.getElementById('statsGrid').innerHTML = DATA.stats.map(s => `
+    <div class="stat">
+      <div class="stat-value">${s.value}</div>
+      <div class="stat-label">${s.label}</div>
+    </div>
+  `).join('');
+
+  /* ─── CAPABILITIES ─── */
+  document.getElementById('capabilities').innerHTML = DATA.capabilities.map(c => `
+    <div class="capability">
+      <div class="capability-icon">${c.icon}</div>
+      <h3>${c.title}</h3>
+      <p>${c.blurb}</p>
+      <div class="capability-tags">${c.tags.map(t => `<span>${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+
+  /* ─── FEATURED RESEARCH (1 large + 2 small) ─── */
+  const featured = DATA.posts.filter(p => p.featured).slice(0, 3);
+  if (featured.length) {
+    const [hero, ...rest] = featured;
+    const heroPost = renderFeaturedCard(hero, 'large');
+    const restCards = rest.map(p => renderFeaturedCard(p, 'small')).join('');
+    document.getElementById('featuredGrid').innerHTML = `
+      ${heroPost}
+      <div class="small-stack">${restCards}</div>
+    `;
+  }
+
+  function renderFeaturedCard(p, size) {
+    const tagsHtml = p.tags.slice(0, size === 'large' ? 4 : 2).map(t => `<span class="tag">${t}</span>`).join('');
+    const external = p.url && p.url.startsWith('http');
+    const linkAttrs = external ? `target="_blank" rel="noopener"` : '';
+    return `
+      <a href="${p.url}" ${linkAttrs} class="featured-card ${size}">
+        <div class="tags">${tagsHtml}</div>
+        <h3>${p.title}</h3>
+        <div class="subtitle">${p.subtitle}</div>
+        <p class="excerpt">${p.excerpt}</p>
+        <div class="meta-row">
+          <span class="date">${formatDate(p.date)}</span>
+          <span class="card-read">Read <span>→</span></span>
+        </div>
+      </a>
+    `;
+  }
+
+  /* ─── CERTIFICATIONS PREVIEW (top 6) ─── */
+  const certsPreviewEl = document.getElementById('certsPreview');
+  if (certsPreviewEl && DATA.certifications) {
+    const top = DATA.certifications.slice(0, 6);
+    certsPreviewEl.innerHTML = top.map(c => `
+      <div class="cert">
+        <div class="cert-name">${c.name}</div>
+        <div class="cert-issuer ${c.issuer ? '' : 'unspecified'}">${c.issuer || 'Workshop / Forum'}</div>
+      </div>
+    `).join('');
+  }
+
+  /* ─── HERO: LATEST POST CARD ─── */
+  const latest = (DATA.posts || [])
+    .slice()
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))[0];
+  const heroPostEl = document.getElementById('heroLatestPost');
+  if (heroPostEl && latest) {
+    const external = latest.url && latest.url.startsWith('http');
+    heroPostEl.href = latest.url || '#';
+    if (external) {
+      heroPostEl.target = '_blank';
+      heroPostEl.rel = 'noopener';
+    }
+    const tagsHtml = latest.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join('');
+    heroPostEl.innerHTML = `
+      <span class="latest-label">Latest writeup</span>
+      <div class="tags">${tagsHtml}</div>
+      <h3>${latest.title}</h3>
+      <div class="subtitle">${latest.subtitle}</div>
+      <p class="excerpt">${latest.excerpt}</p>
+      <div class="meta-row">
+        <span class="date">${formatDate(latest.date)}</span>
+        <span class="read">Read <span>→</span></span>
+      </div>
+    `;
+  }
+
+  /* ─── HERO: NOW PANEL ─── */
+  const heroNowEl = document.getElementById('heroNow');
+  if (heroNowEl && DATA.currently) {
+    const c = DATA.currently;
+    heroNowEl.innerHTML = `
+      <span class="now-label">Now</span>
+      <div class="now-row"><span class="key">Writing</span><span class="val">${c.writing}</span></div>
+      <div class="now-row"><span class="key">Researching</span><span class="val">${c.researching}</span></div>
+      <div class="now-row"><span class="key">Building</span><span class="val">${c.building}</span></div>
+    `;
+  }
+
+</script>
+
+</body>
+</html>
