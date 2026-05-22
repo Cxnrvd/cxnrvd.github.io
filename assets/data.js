@@ -91,7 +91,7 @@ const DATA = {
   currently: {
     writing:     "Forensic timeline of Operation Black Wing",
     researching: "ADCS template misconfigs · ESC1 → ESC8",
-    building:    "adcs-attack-range — automated AD CS lab"
+    building:    "ADCS-Attack-Range · LabForge — visual cyber range designer"
   },
 
   /* ─── TALKS / TRAINING / WORKSHOPS ───
@@ -174,6 +174,16 @@ const DATA = {
       url: "https://github.com/Cxnrvd/ADCS-Attack-Range",
       status: "active",
       category: "offensive"
+    },
+    {
+      id: "labforge",
+      name: "LabForge",
+      lang: "TypeScript",
+      description: "Diagram-driven virtual lab builder for cybersecurity professionals. Draw a network on a canvas, attach roles (Splunk, Wazuh, Kali, OpenPLC…), click Generate Lab, and vagrant up boots the complete infrastructure locally. Bundles seven pre-configured templates — Active Directory, Log4Shell, DFIR, ICS/OT, and more — plus NVD integration for CVE-tagged nodes.",
+      stack: ["TypeScript", "Python", "Next.js", "FastAPI", "Vagrant"],
+      url: "https://github.com/Cxnrvd/LabForge",
+      status: "wip",
+      category: "automation"
     }
   ],
 

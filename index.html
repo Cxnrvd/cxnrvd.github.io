@@ -175,6 +175,23 @@
   </div>
 </section>
 
+<!-- ─── SECTION: TOOLS PREVIEW ─── -->
+<section>
+  <div class="container">
+    <div class="section-label">// open-source tools</div>
+    <h2 class="glitch">What I'm<br /><span class="accent">building.</span></h2>
+    <p class="section-intro">
+      Scripts, attack ranges, and lab automation written in the course of operational and research work. Most things are still being hammered into shape — progress tracked in the open.
+    </p>
+
+    <div class="tools-grid" id="homeToolsGrid"></div>
+
+    <div style="margin-top: 3rem; display: flex; justify-content: flex-start;">
+      <a href="tools.html" class="btn btn-ghost">[ Browse all tools → ]</a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── SECTION: ABOUT TEASER ─── -->
 <section>
   <div class="container">
@@ -352,6 +369,34 @@
         <div class="cert-issuer ${c.issuer ? '' : 'unspecified'}">${c.issuer || 'Workshop / Forum'}</div>
       </div>
     `).join('');
+  }
+
+  /* ─── TOOLS PREVIEW ─── */
+  const homeToolsEl = document.getElementById('homeToolsGrid');
+  if (homeToolsEl && DATA.tools) {
+    const STATUS_LABEL = { active: 'Active', wip: 'WIP', archived: 'Archived' };
+    homeToolsEl.innerHTML = DATA.tools.map(t => {
+      const external = t.url && t.url.startsWith('http');
+      const linkAttrs = external ? `target="_blank" rel="noopener"` : '';
+      const tag = t.url ? 'a' : 'div';
+      const hrefAttr = t.url ? `href="${t.url}" ${linkAttrs}` : '';
+      return `
+        <${tag} ${hrefAttr} class="tool-card">
+          <div class="tool-top">
+            <span class="lang-badge">${t.lang}</span>
+            <span class="tool-status tool-status-${t.status}">${STATUS_LABEL[t.status] || t.status}</span>
+          </div>
+          <div class="tool-name">${t.name}</div>
+          <p class="tool-description">${t.description}</p>
+          <div class="tool-stack">${t.stack.map(s => `<span>${s}</span>`).join('')}</div>
+          <div class="tool-bottom">
+            <span class="tool-cat">${t.category}</span>
+            ${t.url ? `<span class="tool-link">View on GitHub ↗</span>` : ''}
+          </div>
+        </${tag}>
+      `;
+    }).join('');
+    observeCards('#homeToolsGrid .tool-card');
   }
 
   /* ─── HERO: LATEST POST CARD ─── */
